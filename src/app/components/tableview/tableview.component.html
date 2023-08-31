@@ -1,0 +1,40 @@
+<h2>View Employee Attendance</h2>
+<div class="grid-container">
+  <mat-card class="card">
+
+    <form action="" [formGroup]="employeeForm" (ngSubmit)="onSubmit()" #formRef="ngForm">
+      <mat-checkbox formControlName="disableInput">Get all employee attendance</mat-checkbox>
+      <br>
+      <mat-form-field>
+        <mat-label>Employee Id</mat-label>
+        <input matInput placeholder="Enter Employee ID" formControlName="employeeId">
+        <mat-error
+          *ngIf="employeeForm.controls['employeeId'].errors && employeeForm.controls['employeeId'].errors['required']">
+          Please enter the ID
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field>
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date" formControlName="range1">
+          <input matEndDate placeholder="End date" formControlName="range2">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+
+      <br>
+      <button mat-raised-button style="margin-right: 20px;" (click)="onReset()">Reset</button>
+      <button mat-raised-button color="primary" (onSubmit)="onSubmit">Submit</button>
+      <br>
+      <br>
+     
+    </form>
+
+</mat-card>
+  <app-table [tableData]="data" *ngIf="isFormSubmitted"></app-table>
+  <app-bar-chart [apiData]="data"></app-bar-chart>
+</div>

@@ -1,0 +1,9 @@
+/* .mat-table {
+  overflow-x: scroll;
+} */
+.tableDiv{
+  max-height: 315px;
+  width: 100%;
+  overflow: auto;
+  
+}

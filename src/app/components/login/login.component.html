@@ -1,0 +1,28 @@
+<h2>Welcome to Attendance Management System</h2>
+<div class="container">
+    <form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()" #formRef="ngForm">
+        <h2>Enter the Login details below</h2>
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email"
+                   placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="loginForm.controls['email'].errors && loginForm.controls['email'].errors['required']">
+                Please enter the Email ID
+            </mat-error>
+            </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="pwd">
+        <mat-error *ngIf="loginForm.controls['pwd'].errors && loginForm.controls['pwd'].errors['required']">
+            Please enter the Password
+        </mat-error>
+        </mat-form-field>
+      <br>
+      <button mat-raised-button style="margin-right: 20px;" (click)="onReset()">Reset</button>
+      <button mat-raised-button color="primary" (onSubmit)="onSubmit">Submit</button>
+      </form>
+    </div>
+
+
+    <!--  <mat-error *ngIf="loginForm.controls['email'].errors && loginForm.controls['email'].errors['required']"> -->
