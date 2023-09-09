@@ -31,8 +31,9 @@ export class LogService {
     return this.http.post<any>(`${this.baseUrl}/attendance-by-id-date`,postData);
   }
 
-  getAttendanceByRange(date1:string,date2:string):Observable<any>{
+  getAttendanceByRange(id:number, date1:string,date2:string):Observable<any>{
     const postData = {
+      "id":id,
       "startDate" : date1,
       "endDate" : date2
     };

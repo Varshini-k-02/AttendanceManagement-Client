@@ -3,5 +3,6 @@
     <a routerLinkActive="active" routerLink="home">Home</a>
     <a routerLinkActive="active" routerLink="view">View</a>
     <a routerLinkActive="active" routerLink="add">Add</a>
-  
+    <a routerLinkActive="active" routerLink="login" *ngIf="!authService.isLogged()">Login</a>
+    <a (click)="logout()" *ngIf="authService.isLogged()">Logout</a>
   </div>

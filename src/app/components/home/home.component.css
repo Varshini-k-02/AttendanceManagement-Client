@@ -1,0 +1,11 @@
+
+.container1{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+p{
+    font-size: 18px;
+    line-height: 25px;
+}

@@ -83,17 +83,12 @@ export class TableviewComponent {
         this.data = response;
       });
     }
-    else if(d1!=="" && d2!==""){
-      this.log.getAttendanceByRange(dt1,dt2).subscribe(response => {
+    else if(d1!=="" && d2!=="" && this.id!==null){
+      this.log.getAttendanceByRange(this.id,dt1,dt2).subscribe(response => {
         this.data = response;
       });
     }
-    // else{
-    //   this.log.getEmployeeByIdAndDate(this.id,date1).subscribe(response => {
-    //     this.data = response;
-    //   });
-    // }
-    // console.log(this.data);
+   
   }
   onReset() {
     this.employeeForm.reset();

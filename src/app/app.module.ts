@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +25,9 @@ import { BarChartComponent } from './components/tableview/bar-chart/bar-chart.co
 import { AddDataComponent } from './components/add-data/add-data.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { HomeComponent } from './components/home/home.component';
+import { AuthService } from './services/auth.service';
+import {setInjector} from './guards/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { LoginComponent } from './components/login/login.component';
     BarChartComponent,
     AddDataComponent,
     NavBarComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -56,8 +59,11 @@ import { LoginComponent } from './components/login/login.component';
     HighchartsChartModule,
     MatCardModule
   ],
-  providers: [
-  ],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(injector: Injector) {
+    setInjector(injector);
+  }
+}

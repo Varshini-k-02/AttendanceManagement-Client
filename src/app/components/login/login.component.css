@@ -1,6 +1,12 @@
 .container{
-    padding-top: 150px;
+    padding-top: 50px;
+}
+h1{
+    padding-top: 70px;
     display: flex;
     justify-content: center;
     justify-items:center ;
+    font-size: 30px;
+    color:#2fa793;
+    
 }
